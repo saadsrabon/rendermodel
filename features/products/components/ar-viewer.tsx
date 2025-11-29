@@ -11,14 +11,6 @@ interface ARViewerProps {
   productName: string;
 }
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "model-viewer": React.DetailedHTMLProps<any, any>;
-    }
-  }
-}
-
 export function ARViewer({ open, onOpenChange, glbModel, productName }: ARViewerProps) {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);

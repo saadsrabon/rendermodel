@@ -18,13 +18,22 @@ export function ProductCard({ product }: ProductCardProps) {
     <>
       <Card className="overflow-hidden hover:shadow-lg transition-shadow">
         <div className="relative w-full h-64 bg-muted">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-center text-muted-foreground p-4">
+              <div>
+                <p className="text-sm font-medium">3D Model</p>
+                <p className="text-xs mt-2">Click "Try" to view in AR</p>
+              </div>
+            </div>
+          )}
         </div>
         <CardHeader>
           <CardTitle>{product.name}</CardTitle>
@@ -56,4 +65,5 @@ export function ProductCard({ product }: ProductCardProps) {
     </>
   );
 }
+
 
